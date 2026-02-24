@@ -1,0 +1,31 @@
+#product {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+#product img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.header1 {
+  color: white;
+  font-family: 'Georgia', serif;
+  margin-bottom: 30px;
+}
+
+body {
+  background-color: #000; /* black background */
+  color: #fff;            /* optional: makes text white so it's visible */
+  margin: 0;              /* remove default spacing */
+  font-family: Arial, sans-serif; /* nicer font */
+}
