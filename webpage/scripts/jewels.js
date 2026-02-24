@@ -2,17 +2,17 @@ console.log('hey')
 const products = [
   {
     image: "images/first-image.jpeg",
-    description: "Elegant gold necklace",
+    description: "Elegant gold necklace and rings",
     price: "250,000 Naira"
   },
   {
     image: "images/second-image.jpeg",
-    description: "Luxury diamond ring",
+    description: "Luxury gold jewelry set",
     price: "500,000 Naira"
   },
   {
     image: "images/third-image.jpeg",
-    description: "Classic silver bracelet",
+    description: "Beautiful Gold rings",
     price: "120,000 Naira"
   }
 ];
@@ -28,8 +28,27 @@ products.forEach(function(product) {
     <img src="${product.image}">
     <p>${product.description}</p>
     <h3>${product.price}</h3>
-    <button>Add to Cart</button>
+    <label>Quantity: 
+    <select class="quantity">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+  </label>
+    <button class="add-to-cart">Add to Cart</button>
+  
   `;
+   const button = card.querySelector(".add-to-cart");
+  button.addEventListener("click", function() {
+    alert(`${product.description} added to cart`);
+  });
 
   container.appendChild(card);
 
