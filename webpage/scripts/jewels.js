@@ -1,16 +1,19 @@
 console.log('hey')
 const products = [
   {
+    id: 1,
     image: "images/first-image.jpeg",
     description: "Elegant gold necklace and rings",
     price: "250,000 Naira"
   },
   {
+    id: 2,
     image: "images/second-image.jpeg",
     description: "Luxury gold jewelry set",
     price: "500,000 Naira"
   },
   {
+    id: 3,
     image: "images/third-image.jpeg",
     description: "Beautiful Gold rings",
     price: "120,000 Naira"
@@ -42,13 +45,26 @@ products.forEach(function(product) {
       <option value="10">10</option>
     </select>
   </label>
-    <button class="add-to-cart">Add to Cart</button>
+    <button class="add-to-cart" data-product-id="${product.id}">Add to Cart</button>
   
   `;
-   const button = card.querySelector(".add-to-cart");
+  let matchingItem;
+  const button = card.querySelector(".add-to-cart");
   button.addEventListener("click", function() {
-    alert(`${product.description} added to cart`);
+    let matchingItem = undefined;
+        const productId = parseInt(this.getAttribute("data-product-id"));
+  cart.forEach(function(item) {
+      if (item.id === productId) {
+        matchingItem = item;
+      }
   });
+  if (matchingItem) {
+    matchingItem.quantity += 1;
+  } else {
+      cart.push({id: productId, quantity: 1});
+  console.log(cart);
+    }
+});
 
   container.appendChild(card);
 
