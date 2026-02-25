@@ -20,7 +20,13 @@
 .header1 {
   color: white;
   font-family: 'Georgia', serif;
-  margin-bottom: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.header1 h1 {
+  margin: 0;
 }
 
 body {
@@ -29,3 +35,25 @@ body {
   margin: 0;              /* remove default spacing */
   font-family: Arial, sans-serif; /* nicer font */
 }
+
+.cart-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  margin-left: auto; /* pushes the button to the right */
+}
+
+.cart-btn img {
+  width: 40px;
+  filter: invert(1); /* makes dark icon white */
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+}
+
+

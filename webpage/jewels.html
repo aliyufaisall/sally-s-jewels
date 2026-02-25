@@ -2,10 +2,17 @@
 <html>
     <head>
         <title>Sally's Jewels</title>
+        
         <link rel="stylesheet" href="styling/jewels.css">
     </head>
     <body>
-        <h1 class="header1">Welcome to Sally's Jewels</h1>
+        <header class="header-container">
+            <h1 class="header1">Welcome to Sally's Jewels</h1>
+            <button class="cart-btn">
+                <img src="images/cart.png" alt="Cart">
+                (<span class="cart-count">0</span>)
+            </button>
+        </header>   
         <div id="product"></div>
         <script src="scripts/cart.js"></script>
         <script src="scripts/jewels.js"></script>
