@@ -20,6 +20,22 @@ const products = [
   }
 ];
 
+function updateCartCount() {
+
+  const cartCount =
+    document.querySelector(".cart-count");
+
+  if (!cartCount) return;
+
+  let total = 0;
+
+  cart.forEach(item => {
+    total += item.quantity;
+  });
+
+  cartCount.textContent = total;
+}
+
 const container = document.querySelector("#product");
 
 products.forEach(function(product) {
@@ -48,24 +64,33 @@ products.forEach(function(product) {
     <button class="add-to-cart" data-product-id="${product.id}">Add to Cart</button>
   
   `;
-  let matchingItem;
   const button = card.querySelector(".add-to-cart");
   button.addEventListener("click", function() {
     let matchingItem = undefined;
-        const productId = parseInt(this.getAttribute("data-product-id"));
-  cart.forEach(function(item) {
+    const productId = parseInt(this.getAttribute("data-product-id"));
+    const quantity = parseInt(card.querySelector(".quantity").value);
+
+    // Find if the item already exists in the cart
+    cart.forEach(function(item) {
       if (item.id === productId) {
         matchingItem = item;
       }
-  });
-  if (matchingItem) {
-    matchingItem.quantity += 1;
-  } else {
-      cart.push({id: productId, quantity: 1});
-  console.log(cart);
+    });
+
+    if (matchingItem) {
+      matchingItem.quantity += quantity;
+    } else {
+      cart.push({id: productId, quantity: quantity});
     }
-});
+
+    // UPDATE UI: This must be inside the click function to run every time
+    updateCartCount();
+    
+    console.log("Current Cart:", cart);
+  });
 
   container.appendChild(card);
-
 });
+
+// Run once on load to show existing cart count if any
+updateCartCount(); 

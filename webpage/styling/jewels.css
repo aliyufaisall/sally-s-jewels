@@ -56,4 +56,25 @@ body {
   width: 100%;
 }
 
+.cart-count {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  background: red;
+  color: white;
+
+  font-size: 12px;
+  font-weight: bold;
+
+  width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
