@@ -1,4 +1,4 @@
-console.log('hey')
+import { cart, updateCartCount, addToCart } from "./cart.js";
 const products = [
   {
     id: 1,
@@ -20,21 +20,7 @@ const products = [
   }
 ];
 
-function updateCartCount() {
 
-  const cartCount =
-    document.querySelector(".cart-count");
-
-  if (!cartCount) return;
-
-  let total = 0;
-
-  cart.forEach(item => {
-    total += item.quantity;
-  });
-
-  cartCount.textContent = total;
-}
 
 const container = document.querySelector("#product");
 
@@ -71,18 +57,7 @@ products.forEach(function(product) {
     const quantity = parseInt(card.querySelector(".quantity").value);
 
     // Find if the item already exists in the cart
-    cart.forEach(function(item) {
-      if (item.id === productId) {
-        matchingItem = item;
-      }
-    });
-
-    if (matchingItem) {
-      matchingItem.quantity += quantity;
-    } else {
-      cart.push({id: productId, quantity: quantity});
-    }
-
+    addToCart(productId, quantity);
     // UPDATE UI: This must be inside the click function to run every time
     updateCartCount();
     
